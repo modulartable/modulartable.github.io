@@ -121,6 +121,7 @@ body {
 
 .projectsPhotos {
   max-width: 350px;
+  aspect-ratio: 1 / 1;
   border-radius: 5px;
 }
 
@@ -206,6 +207,7 @@ body {
   padding: 5px;
   width: 50px;
 }
+
 
 #hamburger {
 display: none;
@@ -364,6 +366,8 @@ display: none;
       transform $transition-time ease;
   }
 }
+
+
 
 @keyframes fadeIn {
   0% {
