@@ -135,12 +135,8 @@ body {
   z-index: 2;
   display: none;
   background-color: rgba(0, 0, 0, 0.3);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: auto;
+  height: auto;
   font-family: "Roboto Slab", serif;
   font-size: 17px;
   font-weight: 700;
@@ -224,12 +220,8 @@ body {
 
 .moreBtn {
   background-color: rgba(0, 0, 0, 0.3);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: auto;
+  height: auto;
   font-family: "Roboto Slab", serif;
   font-size: 17px;
   font-weight: 700;
@@ -339,12 +331,8 @@ body {
   }
   .viewBtns {
     background-color: rgba(0, 0, 0, 0.3);
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+    width: auto;
+    height: auto;
     font-family: "Roboto Slab", serif;
     font-size: 17px;
     font-weight: 700;

@@ -22,8 +22,8 @@ $transition-delay: 0.3s;
 
 @mixin buttons {
   background-color: $secondary-color;
-  width: fit-content;
-  height: fit-content;
+  width: auto;
+  height: auto;
   font-family: "Roboto Slab", serif;
   font-size: 17px;
   font-weight: 700;
