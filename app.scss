@@ -22,8 +22,8 @@ $transition-delay: 0.3s;
 
 @mixin buttons {
   background-color: $secondary-color;
-  width: 150px;
-  height: 25px;
+  width: fit-content;
+  height: fit-content;
   font-family: "Roboto Slab", serif;
   font-size: 17px;
   font-weight: 700;
@@ -135,16 +135,24 @@ body {
 }
 
 .viewBtns {
+  z-index: 2;
   display: none;
-  z-index: 1;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
   @include buttons;
   background-color: $primary-color;
+}
+
+.viewContainer {
+  z-index: 1;
+  @include container;
+  justify-content: space-evenly;
+  height: 75%;
+  width: 100%;
+  position: absolute;
+flex-direction: column;
+}
+
+.viewChildren {
+margin: 25px;
 }
 
 .projectsChildren:hover .viewBtns {
@@ -225,6 +233,8 @@ display: none;
   }
 
   .projectsContainer {
+    @include container;
+    padding: 25px;
     flex-direction: column;
   }
 
@@ -250,10 +260,26 @@ display: none;
     }
   }
 
+
   .viewBtns {
+    @include buttons;
+    z-index: 2;
     display: block;
     background-color: $primary-color;
-    height: 50px;
+  }
+  
+  .viewContainer {
+    z-index: 1;
+    @include container;
+    justify-content: space-evenly;
+    height: 75%;
+    width: 100%;
+    position: absolute;
+  flex-direction: column;
+  }
+  
+  .viewChildren {
+  margin: 25px;
   }
 
   .moreBtn {
