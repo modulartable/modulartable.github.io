@@ -12,7 +12,7 @@ $transition-delay: 0.3s;
 @mixin container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 @mixin section-header {
@@ -25,13 +25,13 @@ $transition-delay: 0.3s;
   width: auto;
   height: auto;
   font-family: "Roboto Slab", serif;
-  font-size: 17px;
   font-weight: 700;
   border-radius: 5px;
-  padding: 15px;
+  padding: clamp(5px, 10px, 15px);
   text-decoration: none;
-  color: white;
   text-align: center;
+  color: black;
+  font-size: clamp(0.75rem, 1rem, 1.6rem);
 }
 
 body {
@@ -39,9 +39,21 @@ body {
   padding: 0;
   background-color: $primary-color;
   box-sizing: border-box;
-  font-size: calc(0.5em + 0.75vw);
   font-family: "Roboto Slab", serif;
-  color: white;
+  color: black;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 1.9rem, 2.2rem);
+}
+
+h2 {
+  font-size: clamp(1.3rem, 1.5rem, 1.7rem);
+}
+
+p,
+li {
+  font-size: clamp(0.75rem, 1rem, 1.3rem);
 }
 
 .header {
@@ -58,17 +70,20 @@ body {
   justify-content: space-around;
   padding: 25px;
   height: 100vh;
+
+  h1 {
+    font-size: clamp(2rem, 2.5rem, 2.8rem);
+  }
+
+  p {
+    font-size: clamp(1.2rem, 1.4rem, 1.6rem);
+  }
 }
 
 .topChildren {
   padding: 15px;
   max-width: 50%;
   font-size: 25px;
-
-  h1 {
-    color: black;
-    font-size: 45px;
-  }
 }
 
 [data-inviewport="slide-in"].isInViewport {
@@ -92,27 +107,22 @@ body {
   text-decoration: none;
   color: white;
   font-size: 17px;
-
   padding: 25px;
 }
 
-.navLinks:hover {
-  color: black;
-}
-
 .profilePic {
-  height: 300px;
-  width: 300px;
+  height: clamp(150px, 250px, 300px);
+  width: clamp(150px, 250px, 300px);
   border-radius: 50%;
 }
 
 .projectsContainer {
   @include container;
   padding: 25px;
+  flex-wrap: wrap;
 }
 
 .projectsChildren {
-  color: black;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -120,7 +130,7 @@ body {
 }
 
 .projectsPhotos {
-  max-width: 350px;
+  width: clamp(150px, 250px, 350px);
   aspect-ratio: 1 / 1;
   border-radius: 5px;
 }
@@ -136,9 +146,9 @@ body {
 
 .viewBtns {
   z-index: 2;
-  display: none;
   @include buttons;
   background-color: $primary-color;
+  border: 2px black solid;
 }
 
 .viewContainer {
@@ -148,11 +158,11 @@ body {
   height: 75%;
   width: 100%;
   position: absolute;
-flex-direction: column;
+  flex-direction: column;
 }
 
 .viewChildren {
-margin: 25px;
+  margin: 25px;
 }
 
 .projectsChildren:hover .viewBtns {
@@ -171,21 +181,8 @@ margin: 25px;
 .aboutContainer {
   @include container;
   justify-content: space-around;
-
   padding: 25px;
-  text-align: center;
-
-  p {
-    max-width: 1000px;
-  }
-
-  li {
-    text-align: left;
-  }
-
-  h4 {
-    text-align: center;
-  }
+  text-align: left;
 }
 
 .moreBtn {
@@ -203,12 +200,14 @@ margin: 25px;
 .contactContainer {
   @include container;
   margin-top: 15px;
+  justify-content: center;
 }
 
 .footerContainer {
   @include container;
   background-color: $secondary-color;
   padding: 15px;
+  justify-content: center;
 }
 
 .icons {
@@ -216,9 +215,8 @@ margin: 25px;
   width: 50px;
 }
 
-
 #hamburger {
-display: none;
+  display: none;
 }
 
 @media screen and (max-width: 960px) {
@@ -260,14 +258,13 @@ display: none;
     }
   }
 
-
   .viewBtns {
     @include buttons;
     z-index: 2;
     display: block;
     background-color: $primary-color;
   }
-  
+
   .viewContainer {
     z-index: 1;
     @include container;
@@ -275,11 +272,11 @@ display: none;
     height: 75%;
     width: 100%;
     position: absolute;
-  flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .viewChildren {
-  margin: 25px;
+    margin: 25px;
   }
 
   .moreBtn {
@@ -313,55 +310,54 @@ display: none;
   }
 
   .navBarToggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: auto;
-  background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+    background-color: transparent;
   }
 
   .header {
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .navLinks {
     padding: 15px;
-
   }
 
   #hamburger {
-  display: block;
-  padding: 15px;
+    display: block;
+    padding: 15px;
   }
 
-#hamburger .line-1-transition {
+  #hamburger .line-1-transition {
     top: 12px;
     -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
     -webkit-transition: top 0.2s ease, -webkit-transform 0.2s ease 0.3s;
     transition: top 0.2s ease, -webkit-transform 0.2s ease 0.3s;
     transition: top 0.2s ease, transform 0.2s ease 0.3s;
-    transition: top 0.2s ease, transform 0.2s ease 0.3s, -webkit-transform 0.2s ease 0.3s;
+    transition: top 0.2s ease, transform 0.2s ease 0.3s,
+      -webkit-transform 0.2s ease 0.3s;
   }
-  
-  #hamburger  .line-2-transition {
 
+  #hamburger .line-2-transition {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
   }
-  
+
   #hamburger .line-3-transition {
     bottom: 12px;
     -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
+    transform: rotate(135deg);
     -webkit-transition: bottom 0.2s ease, -webkit-transform 0.2s ease 0.3s;
     transition: bottom 0.2s ease, -webkit-transform 0.2s ease 0.3s;
     transition: bottom 0.2s ease, transform 0.2s ease 0.3s;
-    transition: bottom 0.2s ease, transform 0.2s ease 0.3s, -webkit-transform 0.2s ease 0.3s;
+    transition: bottom 0.2s ease, transform 0.2s ease 0.3s,
+      -webkit-transform 0.2s ease 0.3s;
   }
 
   .line {
@@ -372,19 +368,19 @@ display: none;
     border-radius: 3px;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
   }
-  
+
   .line-1 {
     top: 0;
     margin-bottom: $line-space;
     transition: top $transition-time ease $transition-delay,
       transform $transition-time ease;
   }
-  
+
   .line-2 {
     transition: all ease $transition-time;
     transform: scale(1);
   }
-  
+
   .line-3 {
     margin-top: $line-space;
     bottom: 0;
@@ -392,8 +388,6 @@ display: none;
       transform $transition-time ease;
   }
 }
-
-
 
 @keyframes fadeIn {
   0% {
